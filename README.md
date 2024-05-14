@@ -1,61 +1,60 @@
 # Final-Year-Project
 
-## Overview
-
-This repository contains the code, data, and documentation for the Final Year Project of Changqing Lin, focusing on stock prediction using various CNN-MLP models. The project is part of the requirements for the Financial Technology program at Nanyang Technological University.
+## Introduction
+This repository contains the code and related materials for my final year project, which focuses on predicting stock prices using various convolutional neural network (CNN) and multi-layer perceptron (MLP) models. The project is part of my dissertation work for my graduation thesis.
 
 ## Project Structure
-
 The repository is organized into the following directories:
 
-- **Dataset**: Contains the stock data used for model training and evaluation.
-- **Dissertation**: Includes the various sections of the dissertation document.
-- **Experimental Results**: Stores the results from different model experiments.
-- **Model**: Contains the implementation of the CNN-MLP models and their variants.
-- **Proposal**: Contains the project proposal and initial documentation.
+- `Dataset`: Contains the stock data used for training and testing the models.
+- `Dissertation`: Includes the dissertation document detailing the research, methodology, results, and conclusions.
+- `Experimental Results`: Contains the results of various experiments conducted during the project.
+- `Model`: Includes the implementations of the different CNN-MLP models used in the project.
+- `Proposal`: Contains the initial project proposal and planning documents.
 
-## Methodology
+## Data
+The dataset used in this project consists of stock price data for the S&P 500 (SPX). The data is preprocessed to create sequences of stock prices for training the models. The data is split into training and test sets to evaluate the performance of the models.
 
-The methodology for this project is detailed in the `Dissertation` section and includes the following key components:
+## Models
+This project implements and compares several versions of CNN-MLP models for stock prediction:
 
-1. **Data Collection and Preprocessing**:
-   - Stock data from `XOM.csv` is loaded and preprocessed for use in the models.
-   - Preprocessing steps include normalization and sequence generation.
+1. **CNN-MLP with Adam Optimizer**
+2. **CNN-MLP with SGD Optimizer**
+3. **CNN-MLP with AlexNet Architecture**
+4. **CNN-MLP with ResNet (ResNet18) Architecture**
 
-2. **Model Architecture**:
-   - The primary model is a CNN-MLP hybrid optimized using Adam and SGD.
-   - Variants include replacing the CNN component with AlexNet and ResNet (ResNet18).
-   - Each model architecture is detailed with mathematical notation and descriptive text.
+Each model is implemented in PyTorch and includes custom dataset classes, data loaders, and training loops.
 
-3. **Training Procedure**:
-   - Models are trained on sequences of stock data with specific hyperparameters.
-   - The training process includes loss calculation, backpropagation, and optimization.
+## Training and Evaluation
+The models are trained using sequences of stock price data. The training process involves:
 
-4. **Evaluation Metrics**:
-   - Models are evaluated using RMSE, MAE, and R² metrics.
-   - Performance metrics are computed on the test set, with results plotted for analysis.
+- Data Loading and Preprocessing: Loading stock data, normalizing, and creating sequences.
+- Model Definition: Defining the architecture of CNN-MLP models.
+- Training: Training the models using the specified optimizers (Adam, SGD) and architectures (AlexNet, ResNet).
+- Evaluation: Evaluating the models using metrics such as RMSE, MAE, and R².
 
-5. **Trading Strategy Simulation**:
-   - A trading strategy is simulated based on the model's predictions.
-   - The final return and annualized return are calculated to assess the strategy's effectiveness.
+### Training Process
+1. **Data Preprocessing**: The data is normalized and sequences are created.
+2. **Model Training**: Models are trained using PyTorch with different optimizers and architectures.
+3. **Performance Metrics**: The performance is evaluated using RMSE, MAE, and R² scores.
 
-## Results
+### Evaluation Metrics
+- **Root Mean Squared Error (RMSE)**
+- **Mean Absolute Error (MAE)**
+- **R-squared (R²)**
 
-Experimental results are documented in the `Experimental Results` directory. Key findings include:
+### Trading Strategy Simulation
+- A trading strategy is simulated based on the model's predictions.
+- The final return and annualized return are calculated to assess the strategy's effectiveness. 
 
+## Experimental Results
+The `Experimental Results` directory contains the results of the experiments conducted during the project. This includes plots of model performance, comparison of different models, and analysis of the results.
 - Comparison of different optimization techniques (Adam vs. SGD).
 - Performance analysis of models with AlexNet and ResNet architectures.
-- Visualization of prediction accuracy and error metrics.
+- Visualization of prediction accuracy and error metrics. 
 
 ## Dissertation
-
-The `Dissertation` directory contains the complete dissertation document, including:
-
-- Title page, abstract (in English and Chinese), and acknowledgements.
-- Table of contents, lists of tables, figures, and abbreviations.
-- Detailed sections on introduction, literature review, methodology, results, discussion, and conclusions.
-- References following the Harvard or APA referencing style.
-- Appendices with supplementary material.
+The dissertation document provides a detailed description of the research question, literature review, methodology, experimental setup, results, and conclusions. It follows the academic standards and formatting guidelines required by the university.
 
 ## Usage
 
@@ -65,3 +64,15 @@ To run the models and reproduce the results, follow these steps:
    Ensure you have Python and the required libraries installed. You can use the provided `requirements.txt` to install dependencies:
    ```bash
    pip install -r requirements.txt
+
+2. **Download Dataset**:
+   Ensure the stock data is available in the Dataset directory. If necessary, download the required data and place it in the correct directory.
+
+3. **Run Models**:
+   Ensure you have Python and the required libraries installed. You can use the provided `requirements.txt` to install dependencies:
+   ```bash
+   cd Model
+   python train_cnn_mlp_adam.py
+
+4. **View Results**:
+   Check the Experimental Results directory for plots and performance metrics. Analyze the results as described in the Results section. 
